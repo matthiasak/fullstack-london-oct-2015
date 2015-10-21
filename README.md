@@ -4,7 +4,7 @@
 
 [![NPM](https://nodei.co/npm/universal-js-boilerplate.png)](https://nodei.co/npm/universal-js-boilerplate/)
 
-![](https://david-dm.org/matthiasak/universal-js-boilerplate.svg)
+<!-- ![](https://david-dm.org/matthiasak/universal-js-boilerplate.svg) -->
 
 This is a scaffolding project that includes boilerplate code for:
 
