@@ -9,3 +9,6 @@ coverage
 .lock-wscript
 build/Release
 node_modules
+dist/app-browserify.js
+dist/style.css
+dist/esdoc

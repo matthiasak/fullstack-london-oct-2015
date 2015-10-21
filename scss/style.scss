@@ -1,6 +1,6 @@
 
-@import "../bower_components/normalize-css/normalize.css";
-@import "../bower_components/typeplate-starter-kit/css/typeplate.css";
+@import "../bower_components/normalize-css/normalize";
+@import "../bower_components/typeplate-starter-kit/scss/typeplate";
 
 /**
  * BOX-SIZING
@@ -32,35 +32,33 @@
     }
 }
 
-@define-mixin grid_r $col, $width {
-    @media only screen and (min-width: $(width)px) {
-        .grid-$(col)-$(width) {
+@mixin grid_r($col, $width) {
+    @media only screen and (min-width: #{$width}px) {
+        .grid-#{$col}-#{$width} {
             & > * {
-                flex-basis: calc(100 / $col)%;
+                flex-basis: #{100/$col}%;
             }
-            @mixin-content;
         }
     }
 }
 
-@define-mixin grid $col {
-    .grid-$(col) {
+@mixin grid($col) {
+    .grid-#{$col} {
         & > * {
-            flex-basis: calc(100 / $col)%;
+            flex-basis: #{100/$col}%;
         }
-        @mixin-content;
     }
 }
 
-@mixin grid 2 {}
-@mixin grid 4 {}
-@mixin grid 6 {}
+@include grid(2);
+@include grid(4);
+@include grid(5);
 
-@mixin grid_r 2, 400 {}
-@mixin grid_r 2, 800 {}
+@include grid_r(2,400);
+@include grid_r(2,800);
 
-@mixin grid_r 4, 400 {}
-@mixin grid_r 4, 800 {}
+@include grid_r(4,400);
+@include grid_r(4,800);
 
 /**
  * GENERAL
