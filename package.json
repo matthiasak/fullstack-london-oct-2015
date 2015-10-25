@@ -34,7 +34,7 @@
     "check": "requiresafe check; echo 'check completed';",
     "gh-pages": "git stash; git checkout master; npm run build:js; git subtree split --prefix dist -b gh-pages; git checkout gh-pages; cp dist/* .; git add app-browserify.js style.css; git commit -am 'cleaning and pushing'; git push origin gh-pages:gh-pages --force; git checkout master; git branch -D gh-pages; git stash apply;",
     "surge": "surge dist",
-    "teardown": "surge teardown"
+    "teardown": "surge list; echo 'type a domain from above: \n ------------ \n\n '; surge teardown"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
