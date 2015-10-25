@@ -32,7 +32,9 @@
     "postinstall": "npm run bower && npm run build-resolver && npm run build",
     "docs": "esdoc -c esdoc.json",
     "check": "requiresafe check; echo 'check completed';",
-    "gh-pages": "git stash; git checkout master; npm run build:js; git subtree split --prefix dist -b gh-pages; git checkout gh-pages; cp dist/* .; git add app-browserify.js style.css; git commit -am 'cleaning and pushing'; git push origin gh-pages:gh-pages --force; git checkout master; git branch -D gh-pages; git stash apply;"
+    "gh-pages": "git stash; git checkout master; npm run build:js; git subtree split --prefix dist -b gh-pages; git checkout gh-pages; cp dist/* .; git add app-browserify.js style.css; git commit -am 'cleaning and pushing'; git push origin gh-pages:gh-pages --force; git checkout master; git branch -D gh-pages; git stash apply;",
+    "surge": "surge dist",
+    "teardown": "surge teardown"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
@@ -63,6 +65,7 @@
     "react-resolver": "https://github.com/matthiasak/react-resolver.git",
     "request": "^2.55.0",
     "requiresafe": "^2.3.0",
+    "surge": "^0.16.0",
     "uglify-js": "^2.4.23",
     "watchify": "^3.4.0",
     "whatwg-fetch": "^0.10.0"

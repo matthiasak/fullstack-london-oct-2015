@@ -60,6 +60,18 @@ This is a scaffolding project that includes boilerplate code for:
     npm run gh-pages
     ```
 
+6. Or are you using [surge.sh](http://surge.sh)?
+
+    ```sh
+    git commit -am "committing recent changes, for sanity"
+    npm run build
+    npm run surge
+    # you may be prompted to login or signup,
+    # and then you'll be asked what URL to push to on surge.sh
+    ```
+
+    > Note: you can teardown a surge.sh URL with `npm run teardown`, which will prompt you for the URL to bring down
+
 #### Changelog
 
 - Oct 25, 2015
