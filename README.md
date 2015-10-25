@@ -45,14 +45,25 @@ This is a scaffolding project that includes boilerplate code for:
     # npm run server
     ```
 
-4. Ready to push your code live, and want to minify your code with uglifyjs?
+4. Ready to push your code to heroku?
 
     ```sh
-    npm run build
+    git commit -am "Let's do this"
+    heroku create <my app name>
+    git push heroku HEAD:master
+    ```
+
+5. Or are you pushing to gh-pages instead?
+
+    ```sh
+    git commit -am "committing recent changes, so they can be sent to GitHub"
+    npm run gh-pages
     ```
 
 #### Changelog
 
+- Oct 25, 2015
+    - npm scripts now include an `npm run gh-pages`, that uses git subtrees to push only your `dist` folder to the `gh-pages` branch (in otherwords, your visible app will now be located at `http://username.github.io/projectname`, not `http://username.github.io/projectname/dist`)
 - Oct 21, 2015
     - Build system and package.json changes: Tools are now installed per project, due to difficulties in global tool/version management. Tools are also now included as a dependency (installed with `npm install`), so that build tools can run both local server or on platforms like Heroku. When you push to platforms like Heroku, the package.json will automatically build the source files and flush them into the dist folder. This eliminates the need to manage the built js and css files in Git, so they are now in `.gitignore`.
     - `npm run watch` no longer uglifies by default, and automatically builds source maps with `-d` option for browserify

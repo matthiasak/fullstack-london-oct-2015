@@ -12,3 +12,4 @@ node_modules
 dist/app-browserify.js
 dist/style.css
 dist/esdoc
+bower_components/

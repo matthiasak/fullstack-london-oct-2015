@@ -16,7 +16,8 @@
   },
   "scripts": {
     "build:css": "node-sass scss/style.scss | postcss --use autoprefixer --use csswring > ./dist/style.css;",
-    "build:js": "browserify -e ./js/app-browserify.js -t babelify | uglifyjs -mc > ./dist/app-browserify.js",
+    "build:js-min": "browserify -e ./js/app-browserify.js -t babelify | uglifyjs -mc > ./dist/app-browserify.js",
+    "build:js": "browserify -e ./js/app-browserify.js -t babelify > ./dist/app-browserify.js",
     "build-resolver": "babel ./node_modules/react-resolver/src --out-dir ./node_modules/react-resolver/dist",
     "build": "npm run build:js & npm run build:css; echo \"all done!\";",
     "watch:css": "npm run build:css; sane 'npm run build:css' ./scss --glob='**/*.css' --glob='**/*.scss'",
@@ -28,9 +29,10 @@
     "s": "npm run start & npm run watch",
     "n": "node  --use_strict --harmony --es_staging",
     "bower": "bower install normalize-css typeplate-starter-kit pace; cp ./bower_components/normalize-css/normalize.css ./bower_components/normalize-css/normalize.scss; echo 'bower dependencies installed';",
-    "postinstall": "npm run bower & npm run build-resolver && npm run build",
+    "postinstall": "npm run bower && npm run build-resolver && npm run build",
     "docs": "esdoc -c esdoc.json",
-    "check": "requiresafe check; echo 'check completed';"
+    "check": "requiresafe check; echo 'check completed';",
+    "gh-pages": "git stash; git checkout master; npm run build:js; git subtree split --prefix dist -b gh-pages; git checkout gh-pages; cp dist/* .; git add app-browserify.js style.css; git commit -am 'cleaning and pushing'; git push origin gh-pages:gh-pages --force; git checkout master; git branch -D gh-pages; git stash apply;"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
