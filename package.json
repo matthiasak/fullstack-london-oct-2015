@@ -9,7 +9,7 @@
     "url": "https://github.com/matthiasak/universal-js-boilerplate.git"
   },
   "engines": {
-    "node": "^4.1.1"
+    "node": "^4.2.1"
   },
   "browser": {
     "./fetcher/index.js": "./fetcher/browser.js"
@@ -21,7 +21,7 @@
     "build-resolver": "babel ./node_modules/react-resolver/src --out-dir ./node_modules/react-resolver/dist",
     "build": "npm run build:js & npm run build:css; echo \"all done!\";",
     "watch:css": "npm run build:css; sane 'npm run build:css' ./scss --glob='**/*.css' --glob='**/*.scss'",
-    "watch:js": "watchify ./js/app-browserify.js -t babelify -v --delay 16 -o ./dist/app-browserify.js -d --",
+    "watch:js": "watchify ./js/app-browserify.js -p browserify-hmr -t babelify -v --delay 16 -o 'exorcist ./dist/app-browserify.js.map > ./dist/app-browserify.js' -d --",
     "watch": "npm run watch:css & npm run watch:js;",
     "test": "NODE_ENV=eee mocha ./js/test --compilers js:babel/register --recursive; echo '----- tests done'",
     "server": "nodemon --watch . --ext js,jsx heroku-server.js & npm run watch",
@@ -44,12 +44,14 @@
     "backbone": "^1.2.1",
     "bower": "^1.4.1",
     "browserify": "^11.2.0",
+    "browserify-hmr": "^0.3.1",
     "chai": "^3.3.0",
     "compression": "^1.5.2",
     "csswring": "^4.0.0",
     "csurf": "^1.8.3",
     "esdoc": "^0.4.0",
     "esdoc-es7-plugin": "0.0.2",
+    "exorcist": "^0.4.0",
     "express": "^4.12.3",
     "express-session": "^1.11.3",
     "jquery": "^2.1.4",
