@@ -74,6 +74,8 @@ This is a scaffolding project that includes boilerplate code for:
 
 #### Changelog
 
+0 Oct 27, 2015
+    - added `surge.sh` push/deployment scripts, and split up the express server code, so that heroku-server now uses the `nanny` module to scale out and monitor the health of a load-balanced cluster
 - Oct 25, 2015
     - npm scripts now include an `npm run gh-pages`, that uses git subtrees to push only your `dist` folder to the `gh-pages` branch (in otherwords, your visible app will now be located at `http://username.github.io/projectname`, not `http://username.github.io/projectname/dist`)
 - Oct 21, 2015
