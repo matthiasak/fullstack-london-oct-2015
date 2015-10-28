@@ -4,7 +4,7 @@ require("babel/polyfill")
 // the following line, if uncommented, will enable browserify to push
 // a changed file to you, with source maps (reverse map from compiled
 // code line # to source code line #), in realtime via websockets
-// if (module.hot) module.hot.accept()
+if (module.hot) module.hot.accept()
 
 let fetch = require('./fetcher')
 
