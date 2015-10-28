@@ -14,12 +14,14 @@ const frame = (_src) => {
 
     if(_src.indexOf('.js') !== -1){
         m.startComputation()
-        fetch(window.location.href+_src)
+        let {origin,pathname} = window.location,
+            url = `${origin}${pathname}${_src}`
+        fetch(url)
             .then(r => r.text())
             .then(scriptText =>
                 src(`./Arbiter-frame/#${escape(scriptText)}`))
             .then(_ => m.endComputation())
-            .catch(e => console.log(e))
+            .catch(e => console.error(e))
     }
 
     return {
@@ -180,4 +182,4 @@ const app = () => {
     e.render('html')
 }
 
-app()
+window.onload = app
