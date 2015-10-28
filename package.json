@@ -32,7 +32,7 @@
     "postinstall": "npm run bower && npm run build-resolver && npm run build",
     "docs": "esdoc -c esdoc.json",
     "check": "requiresafe check; echo 'check completed';",
-    "gh-pages": "git checkout master && npm run build:js && git subtree split --prefix dist -b gh-pages && git checkout gh-pages && cp dist/* . && git add dist/* && git commit -am 'cleaning and pushing' && git push origin gh-pages:gh-pages --force && git checkout master && git branch -D gh-pages;",
+    "gh-pages": "git checkout master && npm run build:js && git subtree split --prefix dist -b gh-pages && git checkout gh-pages && cp dist/* . && git add --all . && git commit -am 'cleaning and pushing' && git push origin gh-pages:gh-pages --force && git checkout master && git branch -D gh-pages;",
     "surge": "surge dist",
     "teardown": "surge list; echo 'type a domain from above: \n ------------ \n\n '; surge teardown",
     "dedupe": "npm dedupe",
