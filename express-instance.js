@@ -9,8 +9,7 @@ var express = require('express'),
 // all environments
 app.set('port', process.argv[3] || process.env.PORT || 3000)
 app.disable('x-powered-by')
-// app.use(/(.*).(css|js)/, compression())
-app.use(/(.*).(css)/, compression())
+app.use(/(.*).(css|js)/, compression())
 app.use(express.static(__dirname+'/dist'))
 app.use(express.static(__dirname+'/bower_components'))
 

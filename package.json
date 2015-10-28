@@ -11,9 +11,6 @@
   "engines": {
     "node": "^4.2.1"
   },
-  "browser": {
-    "./fetcher/index.js": "./fetcher/browser.js"
-  },
   "scripts": {
     "build:css": "node-sass scss/style.scss | postcss --use autoprefixer --use csswring > ./dist/style.css;",
     "build:js-min": "browserify -e ./js/app-browserify.js -t babelify | uglifyjs -mc > ./dist/app-browserify.js",
@@ -56,6 +53,7 @@
     "exorcist": "^0.4.0",
     "express": "^4.12.3",
     "express-session": "^1.11.3",
+    "isomorphic-fetch": "^2.2.0",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
     "method-override": "^2.3.3",
